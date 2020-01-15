@@ -1,11 +1,59 @@
-name: 'documentation.JS'
+name: 'documentation.js'
 description: 'Generate JSDoc with documentation-js'
 author: "Codevise Solutions GmbH"
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  input:
     required: true
-    default: 'World'
+    description: 'Input directory or files.'
+  output:
+    required: true
+    description: 'A filename for single-file outputs and a directory name for multi-file outputs like html.'
+
+  theme:
+    description: 'This must be a valid theme module.'
+  themePackage:
+    description: 'Package name/url that will be passed to npm to install the theme.'
+  projectName:
+    description: 'The project name.'
+  projectVersion:
+    description: 'The project version.'
+  projectDescription:
+    description: 'The project description.'
+  projectHomepage:
+    description: 'The project homepage.'
+  favicon:
+    description: 'Favicon used in html.'
+  markdownToc:
+    description: 'Include a table of contents in markdown output.'
+  markdownTocMaxDepth:
+    description: 'Specifies the max depth of the table of contents in markdown output.'
+  shallow:
+    description: 'Shallow mode turns off dependency resolution, only processing the specified files (or the main script specified in package.json).'
+  config:
+    description: 'Path of file defining the TOC.'
+  noPackage:
+    description: 'Do not find and use package.json for project configuration option defaults.'
+  external:
+    description: 'Glob match pattern that defines which external modules will be included in the generated documentation.'
+  requireExtension:
+    description: 'Additional extensions to include in `require()` and `import` search algorithm. For instance, adding `.es5` would allow `require("adder")` to find `adder.es5`.'
+  parseExtension:
+    description: 'Additional extensions to parse as source code.'
+  private:
+    description: 'Generate documentation tagged as private.'
+  access:
+    description: 'Include only comments with a given access level, out of private, protected, public, undefined. By default, public, protected, and undefined access levels are included.'
+  github:
+    description: 'Unfer links to github in documentation.'
+  inferPrivate:
+    description: 'Infer private access based on the name. This is a regular expression that is used to match the name.'
+  documentExported:
+    description: 'Generate documentation for all exported bindings and members even if there is no JSDoc for them.'
+  sortOrder:
+    description: 'The order to sort the documentation: `source` or `alpha`.'
+  format:
+    description: '`html`, `json`, `md` or `remark`.'
+    default: 'html'
 runs:
   using: 'node12'
   main: 'index.js'
