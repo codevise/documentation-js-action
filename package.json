@@ -1,0 +1,16 @@
+{
+  "name": "documentation-js-action",
+  "version": "1.0.0",
+  "description": "GitHub action to generate JSDoc with documentation.js.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Codevise Solutions GmbH <info@codevise.de>",
+  "license": "MIT",
+  "homepage": "https://github.com/codevise/documentation-js-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.1",
+    "@actions/exec": "^1.0.3"
+  },
+  "devDependencies": {}
+}

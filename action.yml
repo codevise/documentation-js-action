@@ -1,0 +1,11 @@
+name: 'documentation.JS'
+description: 'Generate JSDoc with documentation-js'
+author: "Codevise Solutions GmbH"
+inputs:
+  who-to-greet:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: 'World'
+runs:
+  using: 'node12'
+  main: 'index.js'
