@@ -5,8 +5,12 @@ const path = require('path');
 
 async function run() {
   try {
+    const branch = process.env['GITHUB_REF'].replace('refs/heads/', '');
+
     const input = core.getInput('input');
-    const args = ['build', input];
+    const output = core.getInput('output').replace('<branch>', branch);
+
+    const args = ['build', input, '--output', output];
 
     let theme = core.getInput('theme');
     const themePackage = core.getInput('themePackage');
@@ -38,7 +42,6 @@ async function run() {
       'infer-private',
       'document-exported',
       'sort-order',
-      'output',
       'format'
     ].forEach(option => {
       const key = camelCase(option)
