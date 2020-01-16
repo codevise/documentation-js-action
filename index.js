@@ -10,7 +10,12 @@ async function run() {
     const input = core.getInput('input');
     const output = core.getInput('output').replace('<branch>', branch);
 
-    const args = ['build', input, '--output', output];
+    const args = ['build']
+
+    input.split(' ').forEach(i => args.push(i));
+
+    args.push('--output');
+    args.push(output);
 
     let theme = core.getInput('theme');
     const themePackage = core.getInput('themePackage');
