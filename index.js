@@ -5,10 +5,12 @@ const path = require('path');
 
 async function run() {
   try {
-    const branch = process.env['GITHUB_REF'].replace('refs/heads/', '');
+    const ref = process.env['GITHUB_REF']
+                       .replace('refs/heads/', '')
+                       .replace('refs/tags/', '');
 
     const input = core.getInput('input');
-    const output = core.getInput('output').replace('<branch>', branch);
+    const output = core.getInput('output').replace('<ref>', ref);
 
     const args = ['build']
 
